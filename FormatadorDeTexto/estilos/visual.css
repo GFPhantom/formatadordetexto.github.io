@@ -1,0 +1,249 @@
+
+*{
+    margin  : 0;
+    padding : 0;
+}
+
+body{
+    background-color : #1a1a1a;
+    padding-bottom   : 60px;
+    color            : white;
+}
+
+div#alerta{
+    background-color : red;
+    position         : fixed;
+    bottom           : 35px;
+    left             : 5px;
+    padding          : 3px;
+    color            : white;
+    display          : none;
+    border-style     : solid;
+    border-width     : 2px;
+    border-color     : darkred;
+    z-index          : 1;
+}
+
+header{
+    padding             : 5px;
+    background-color    : #1c4263;
+    text-align          : center;
+    color               : white;
+    border-bottom-style : solid;
+    border-bottom-width : 1px;
+    border-bottom-color : #5BC0DE;
+}
+
+header:hover{
+    border-bottom-color : #449D44;
+}
+
+header h1{
+    text-transform : uppercase;
+    letter-spacing : 4px;
+    word-spacing   : 5px;
+}
+
+noscript{
+    position : absolute;
+}
+
+noscript p{
+    color                     : red;
+    animation-name            : jsDesativado;
+    animation-iteration-count : infinite;
+    animation-duration        : 2s;
+    margin-top                : 10px;
+    margin-left               : 10px;
+}
+
+select#metodos{
+    background-color : #1c4263;
+    border-color     : #5BC0DE;
+    color            : white;
+    padding          : 7px;
+    width            : 300px;
+    margin-top       : 20px;
+    margin-left      : auto;
+    margin-right     : auto;
+    display          : block;
+}
+
+div#configuracoes{
+    width        : 300px;
+    text-align   : center;
+    margin-top   : 10px;
+    margin-left  : auto;
+    margin-right : auto;
+}
+
+div#configuracoes div.div_oculta{
+    display : none;
+}
+
+div#configuracoes input[type="text"]{
+    background-color : transparent;
+    border-style     : solid;
+    border-width     : 1px;
+    border-color     : #5BC0DE;
+    padding          : 4px;
+    width            : 60px;
+    color            : white;
+}
+
+textarea#texto{
+    width            : 1100px;
+    height           : 360px;
+    padding          : 6px;
+    border-style     : solid;
+    border-width     : 2px;
+    border-color     : #1c4263;
+    background-color : transparent;
+    color            : white;
+    margin-top       : 10px;
+    margin-left      : auto;
+    margin-right     : auto;
+    display          : block;
+}
+
+textarea#texto:focus{
+    border-color : #449D44
+}
+
+div#meta_dados{
+    background-color : #1c4263;
+    border-style     : solid;
+    border-width     : 1px;
+    border-color     : #337AB7;
+    padding          : 6px;
+    width            : 1100px;
+    margin-top       : 10px;
+    margin-left      : auto;
+    margin-right     : auto;
+}
+
+div#meta_dados span.ref_info:last-child{
+    float : right;
+}
+
+div#meta_dados span.ref_info{
+    color : white;
+}
+
+div#meta_dados span.res_info{
+    color : #5BC0DE;
+}
+
+div#controle{
+    width        : 1100px;
+    margin-top   : 10px;
+    margin-right : auto;
+    margin-left  : auto;
+    text-align   : center;
+}
+
+div#controle p#situacao{
+    margin-top : 10px;
+    text-align : center;
+    color      : lime;
+}
+
+div#controle input[type = "image"]{
+    height : 25px;
+    width  : 25px;
+}
+
+div#controle button#bt_formatar{
+    width            : 200px;
+    background-color : #1a1aff;
+    padding          : 8px;
+    color            : white;
+    border           : none;
+}
+
+div#controle button#bt_formatar:hover{
+    background-color : #3333ff;
+}
+
+article{
+    width            : 800px;
+    margin-top       : 10px;
+    margin-left      : auto;
+    margin-right     : auto;
+    border-top-style : solid;
+    border-top-width : 1px;
+    border-top-color : #449D44;
+}
+
+article p{
+    margin-top : 15px;
+}
+
+article p strong{
+    color : gold;
+}
+
+article p b{
+    color : #449D44;
+}
+
+article section{
+	border-top-style : solid;
+	border-top-color : #5BC0DE;
+	border-top-width : 1px;
+	padding          : 5px;
+}
+
+article section p{
+	margin-left : 40px;
+}
+
+article footer{
+    position         : fixed;
+    bottom           : 0;
+    left             : 0;
+    width            : 100%;
+    height           : 20px;
+    background-color : #1c4263;
+    border-top-style : solid;
+    border-top-width : 1px;
+    border-top-color : #5BC0DE;
+    padding          : 5px;
+    text-align       : center;
+}
+
+article footer:hover{
+    border-top-color : #449D44;
+}
+
+article footer p{
+    margin-top : 0;
+    color      : white;
+}
+
+button{
+    cursor : pointer;
+}
+
+button,
+select,
+textarea#texto,
+input{
+    outline : none;
+}
+
+@keyframes jsDesativado{
+
+    0%{
+        color : red;
+    }
+
+    50%{
+        color : #e60000;
+    }
+
+    100%{
+        color : #b30000;
+    }
+
+}

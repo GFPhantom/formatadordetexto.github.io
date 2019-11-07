@@ -1,0 +1,42 @@
+
+div#alerta{
+    bottom : 30px;
+}
+
+header h1{
+    text-transform : uppercase;
+    letter-spacing : 1px;
+    word-spacing   : 1px;
+    font-size      : 24px;
+}
+
+textarea#texto{
+    width  : 94%;
+    height : 270px;
+}
+
+div#meta_dados{
+    width : 94%;
+}
+
+div#controle{
+    width : 99%;
+}
+
+div#controle button#bt_formatar{
+    width   : 170px;
+    padding : 6px;
+}
+
+article{
+    width : 94%;
+}
+
+article footer{
+    padding        : 2px;
+    padding-bottom : 0;
+}
+
+article footer p{
+    font-size : 12px;
+}

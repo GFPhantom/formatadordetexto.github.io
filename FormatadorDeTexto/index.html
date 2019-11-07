@@ -1,0 +1,188 @@
+﻿
+<!DOCTYPE html>
+<html lang="pt-br">
+
+    <head>
+
+        <title>Formatador de Texto</title>
+        <meta charset="utf-8">
+        <meta name="author" content="Gabriel Fernandes Ferreira">
+        <meta name="description" content="Aplicação rápida e simples para formatar texto.">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+        <link rel="stylesheet" href="estilos/visual.css">
+        <link rel="stylesheet" href="estilos/visual-movel.css" media="screen and (min-width: 319px) and (max-width: 1020px)">
+        <link rel="icon" href="imagens/icone.png">
+
+    </head>
+
+    <body>
+
+        <div id="alerta">
+        </div>
+
+        <header>
+            <h1>Formatador de Texto</h1>
+        </header>
+
+        <noscript>
+            <p>É preciso estar com o JavaScript ativado</p>
+        </noscript>
+
+        <select id="metodos">
+            <option selected hidden>Selecione um método</option>
+            <optgroup label="Adicionar">
+                <option value="1">Prefixo/sufixo</option>
+                <option value="2">Novas quebras de linhas</option>
+            </optgroup>
+            <optgroup label="Converter">
+                <option value="3">1º letra para maiúscula</option>
+                <option value="4">Tamanho da fonte</option>
+            </optgroup>
+            <optgroup label="Remover">
+                <option value="5">Quebras de Linha</option>
+                <option value="6">Espaços</option>
+            </optgroup>
+            <optgroup label="Outros">
+                <option value="7">Indentar parágrafos</option>
+                <option value="8">Inverter texto</option>
+                <option value="9">Localizar e substituir</option>
+            </optgroup>
+        </select>
+
+        <div id="configuracoes">
+            <div id="div_prefixo_sufixo" class="div_oculta">
+                <label for="prefixo">Prefixo</label>
+                <input type="text" id="prefixo"> <br> <br>
+                <label for="sufixo">Sufixo</label>
+                <input type="text" id="sufixo"> <br> <br>
+                <input type="radio" name="config_prefixo_sufixo" id="prefixo_sufixo_cada_paragrafo" checked>
+                <label for="prefixo_sufixo_cada_paragrafo">Cada parágrafo</label> &nbsp;
+                <input type="radio" name="config_prefixo_sufixo" id="prefixo_sufixo_cada_conjunto">
+                <label for="prefixo_sufixo_cada_conjunto">Cada conjunto</label>
+            </div>
+            <div id="div_adicao_quebras_de_linha" class="div_oculta">
+                <label for="qtd_quebras">Quantidade</label> <br>
+                <input type="text" id="qtd_quebras">
+            </div>
+            <div id="div_1letra_maiuscula" class="div_oculta">
+                <input type="radio" id="1letra_maiuscula_todas_letras" name="config_1letra_maiuscula">
+                <label for="1letra_maiuscula_todas_letras">Todas as letras</label> &nbsp;
+                <input type="radio" id="1letra_maiuscula_capitular" name="config_1letra_maiuscula" checked>
+                <label for="1letra_maiuscula_capitular">Letra capitular</label>
+            </div>
+            <div id="div_conversao_tamanho" class="div_oculta">
+                <input type="radio" name="modo_conversao" id="tudo_para_maiusculo" checked>
+                <label for="tudo_para_maiusculo">Maiúscula</label> &nbsp;
+                <input type="radio" name="modo_conversao" id="tudo_para_minusculo">
+                <label for="tudo_para_minusculo">Minúscula</label>
+            </div>
+			<div id="div_remocao_quebras_linha" class="div_oculta">
+				<input type="radio" name="config_remover_quebras" id="remover_todas_quebras">
+				<label for="remover_todas_quebras">Todas as quebras</label> &nbsp;
+				<input type="radio" name="config_remover_quebras" id="remover_quebras_duplicadas" checked>
+				<label for="remover_quebras_duplicadas">Quebras duplicadas</label>
+			</div>
+            <div id="div_remocao_espacos" class="div_oculta">
+                <input type="radio" name="config_remover_espacos" id="remover_todos_espacos">
+                <label for="remover_todos_espacos">Todos os espaços</label> &nbsp;
+                <input type="radio" name="config_remover_espacos" id="remover_espacos_duplicados" checked>
+                <label for="remover_espacos_duplicados">Espaços duplicados</label>
+            </div>
+            <div id="div_indentacao" class="div_oculta">
+                <label for="qtd_espaco_indentacao">Quantidade de espaço</label> <br>
+                <input type="text" id="qtd_espaco_indentacao">
+            </div>
+            <div id="div_substituicao" class="div_oculta">
+                <label for="alvo_substituicao">Substituir</label>
+                <input type="text" id="alvo_substituicao"> &nbsp;
+                <label for="substituto">Por</label>
+                <input type="text" id="substituto">
+            </div>
+        </div>
+
+        <textarea id="texto" spellcheck="false" placeholder="Digite/cole o seu texto aqui"></textarea>
+
+        <div id="meta_dados">
+            <span class="ref_info">
+                Total de caracteres: <span id="total_caracteres" class="res_info">0</span>
+            </span>
+            <span class="ref_info">
+                Total de palavras: <span id="total_palavras" class="res_info">0</span>
+            </span>
+        </div>
+
+        <div id="controle">
+            <input type="image" src="imagens/voltar.png" id="bt_voltar" align="left" title="Voltar">
+            <button type="button" id="bt_formatar">
+                Formatar
+            </button>
+            <input type="image" src="imagens/avancar.png" id="bt_avancar" align="right" title="Avançar">
+            <p id="situacao"></p>
+        </div>
+
+        <article>
+            <h2>Sobre</h2>
+            <p>
+                Sistema simples e rápido para formatar todo um texto.
+            </p>
+			<p>
+				Em cada lado do botão <strong>formatar</strong> existe uma seta, esta seta serve para voltar ou avançar, toda formatação feita é gravada em um histórico temporário, ou seja, todo o histórico será excluído se a página for fechada ou atualizada.
+			</p>
+			<section>
+				<h3>Adição</h3>
+				<p>
+					Com o método de formatação de texto, <strong>prefixo/sufixo</strong>, cada parágrafo ou item de lista será alterado conforme os parâmetros passados (prefixo e sufixo).
+					Você pode usar esse método para adicionar um ponto no final de cada parágrafo por exemplo.
+				</p>
+				<p>
+					Usando o método <strong>novas quebras de linhas</strong> o formatador vai remover todas as quebras existentes e adicionar novas conforme a quantidade de quebras informadas no final de cada parágrafo ou item de lista. 
+				</p>			
+			</section>
+			<section>
+				<h3>Conversão</h3>		
+				<p>
+					Método <strong>1º letra para maiúscula</strong> pega a primeira letra de cada parágrafo ou item de uma lista e transforma em maiúscula.
+				</p>
+				<p>
+					O método <strong>tamanho da fonte</strong> converte todo o texto para maiúscula ou minúscula, você escolhe.
+				</p>			
+			</section>
+			<section>
+				<h3>Remoção</h3>
+				<p>
+					Método <strong>quebras de linha</strong> vai remover as quebras de linha presentes no texto, você pode escolher entre remover todas ou apenas as quebras de linha duplicadas.
+				</p>
+				<p>
+					<strong>Espaços</strong>, vai remover todos os espaços ou apenas os espaços duplicados, você decide.
+				</p>
+			</section>
+			<section>
+				<h3>Outros</h3>
+				<p>
+					<strong>Indentar parágrafos</strong> vai indentar todos os parágrafos usando a quantidade de espaços informada.
+				</p>
+				<p>
+					<strong>Inverter texto</strong> vai inverter todo o texto, se você clicar novamente o texto voltará ao seu estado normal.
+				</p>
+				<p>
+					Último método, <strong>Localizar e substituir</strong> vai procurar o alvo e substituir pelo caractere informado ou vai simplesmente remover o alvo, caso não informe um substituto.
+				</p>
+			</section>
+            <p>
+                Se quiser enviar alguma sugestão ou crítica envie para este E-mail: <b>webappformatadordetexto@gmail.com</b>.
+            </p>
+            <footer>
+                <p>Formatador de Texto | Última modificação: 29/06/2019</p>
+            </footer>
+        </article>
+
+        <script src="programas/formatador.js"></script>
+		<script src="programas/metaDados.js"></script>
+		<script src="programas/historico.js"></script>
+        <script src="programas/interacao.js"></script>
+        <script src="programas/eventos.js"></script>
+        <script src="https://www.w3counter.com/tracker.js?id=123944"></script>
+
+    </body>
+
+</html>
